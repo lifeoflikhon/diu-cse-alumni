@@ -4,7 +4,7 @@ import * as auth from 'firebase/auth';
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/compat/firestore";
 import {Router} from "@angular/router";
 import {from, map, Observable, tap} from "rxjs";
-import {User} from "../models/user";
+import {AuthUser} from "../models/auth-user";
 
 @Injectable({
   providedIn: 'root'
@@ -58,7 +58,8 @@ export class AuthService {
       `users/${user.uid}`
     );
 
-    const userData: User = {
+    const userData: AuthUser = {
+      id: user.uid,
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,

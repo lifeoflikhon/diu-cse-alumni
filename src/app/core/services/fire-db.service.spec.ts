@@ -1,17 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthService } from './auth.service';
+import { FireDbService } from './fire-db.service';
 
-describe('AuthService', () => {
-  let service: AuthService;
+describe('FireDbService', () => {
+  let service: FireDbService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthService);
+    service = TestBed.inject(FireDbService);
   });
 
   it('should be created', () => {
-    // @ts-ignore
     expect(service).toBeTruthy();
   });
 });
