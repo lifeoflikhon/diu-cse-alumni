@@ -100,8 +100,52 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "diu-cse-alumni:build:production",
+            "firebaseProject": "diu-alumni-cd457",
+            "firebaseHostingSite": "diu-alumni-cd457"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "diu-cse-alumni:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "diu-cse-alumni:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "diu-cse-alumni:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "diu-cse-alumni:serve:production"
+            }
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "aa80e9f7-34d7-4437-85f8-aab20ad5040d"
   }
 }
