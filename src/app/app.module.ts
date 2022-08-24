@@ -12,6 +12,7 @@ import {AuthService} from "./modules/auth/services/auth.service";
 import {SharedModule} from "./shared/shared.module";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AngularFireModule} from "@angular/fire/compat";
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AngularFireModule} from "@angular/fire/compat";
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    SharedModule
+    SharedModule,
+    HotToastModule.forRoot()
   ],
   providers: [
     AuthService

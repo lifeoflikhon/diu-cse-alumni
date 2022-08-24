@@ -30,10 +30,6 @@ export class AuthService {
     });
   }
 
-  forgotPassword(passwordResetEmail: string): Observable<void> {
-    return from(this.afAuth.sendPasswordResetEmail(passwordResetEmail));
-  }
-
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false;
@@ -43,7 +39,7 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
-  AuthLogin(provider: any) {
+  private AuthLogin(provider: any) {
     return from(this.afAuth
       .signInWithPopup(provider)).pipe(
       map(res => {
@@ -53,7 +49,7 @@ export class AuthService {
     );
   }
 
-  setUserData(user: any) {
+  private setUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
