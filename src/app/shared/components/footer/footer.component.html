@@ -1,0 +1,18 @@
+<i class="focus-icon fa-thin fa-graduation-cap"></i>
+
+<h2 class="title">
+  DIU CSE ALUMNI
+</h2>
+
+<p class="call-to-contact">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid architecto assumenda aut consequuntur cupiditate eveniet necessitatibus officiis recusandae repudiandae ut vel vitae, voluptatem! In.
+</p>
+
+<ul class="social-links">
+  <li class="social-link" *ngFor="let socialLink of socialLinks">
+    <i class="fa-brands fa-{{ socialLink.icon }}"></i>
+    <a [href]="socialLink.url" target="_blank">@{{socialLink.title}}</a>
+  </li>
+</ul>
+
+<p class="copyright">&copy; Copyright - DIU CSE ALUMNI</p>

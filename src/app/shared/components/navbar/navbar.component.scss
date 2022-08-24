@@ -1,0 +1,11 @@
+:host {
+  @apply h-16 border-b border-gray-100 bg-white flex items-center justify-between px-4;
+
+  .logo {
+    @apply text-lg font-black text-indigo-700;
+  }
+
+  .toggle-button {
+    @apply text-2xl;
+  }
+}
