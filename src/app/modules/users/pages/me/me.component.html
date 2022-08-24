@@ -14,18 +14,20 @@
 
   <section class="grid gap-6">
     <div *ngFor="let menuGroup of menuGroups">
-      <h3 class="text-2xl font-bold mb-2">{{ menuGroup.title }}</h3>
+      <ng-container *ngIf="me[menuGroup.shown]">
+        <h3 class="text-2xl font-bold mb-2">{{ menuGroup.title }}</h3>
 
-      <div class="grid gap-2 grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10">
-        <ng-container *ngFor="let menu of menuGroup.menus">
-          <a [routerLink]="[menu.url]">
-            <button class="bg-gray-100 p-4 w-full aspect-square flex flex-col items-center justify-center gap-2">
-              <i class="text-4xl fa-thin fa-{{menu.icon}}"></i>
-              <span class="text-sm">{{ menu.title }}</span>
-            </button>
-          </a>
-        </ng-container>
-      </div>
+        <div class="grid gap-2 grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10">
+          <ng-container *ngFor="let menu of menuGroup.menus">
+            <a *ngIf="me[menu.shown]" [routerLink]="[menu.url]">
+              <button class="bg-gray-100 p-4 w-full aspect-square flex flex-col items-center justify-center gap-2">
+                <i class="text-4xl fa-thin fa-{{menu.icon}}"></i>
+                <span class="text-sm">{{ menu.title }}</span>
+              </button>
+            </a>
+          </ng-container>
+        </div>
+      </ng-container>
     </div>
   </section>
 </ng-container>
